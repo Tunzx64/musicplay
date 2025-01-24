@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+{% block content %}
+    {% if playlist %}
+        <h1 class="text-center">Todas suas playlists</h1>
+        {% for list_play in playlist %}
+            <ol class="list-group list-group-numbered mx-4">
+                <a href="{{ url_for('home.playlist_musicas', playlist_id=list_play.id) }}" style="text-decoration: none; color: black;">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{ list_play.title }}</div>
+                            <p>Musicas: {{ list_play.musics | length }}</p>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">{{ list_play.musics | length }}</span>
+                    </li>
+                </a>
+            </ol>
+        {% endfor %}
+    {% else %}
+        <p class="text-center text-secondary">Você não tem nenhuma playlist criada !</p>
+    {% endif %}
+{% endblock %}

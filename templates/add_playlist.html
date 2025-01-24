@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Card -->
+            <div class="card border-0 shadow-lg rounded-4">
+                <!-- Cabeçalho -->
+                <div class="card-header bg-gradient-primary text-white text-center rounded-top">
+                    <h4 class="fw-bold">
+                        <i class="bi bi-plus-circle me-2"></i> <p class="text-dark">Adicione à PlayList</p>
+                    </h4>
+                </div>
+                <!-- Corpo do Card -->
+                <div class="card-body p-4">
+                    <form method="POST" class="needs-validation" novalidate>
+                        {{ formPM.hidden_tag() }}
+                        <!-- Seleção da Playlist -->
+                        <div class="mb-4">
+                            <label for="playlist_id" class="form-label fw-semibold text-secondary">
+                                <i class="bi bi-music-note-list me-2"></i> Selecione a Playlist:
+                            </label>
+                            {{ formPM.playlist_id(class="form-select form-select-lg rounded-3", id="playlist_id") }}
+                        </div>
+                        <!-- Botão de Enviar -->
+                        <div class="d-grid">
+                            {{ formPM.submit(class="btn btn-primary btn-lg rounded-pill shadow-sm") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

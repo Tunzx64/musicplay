@@ -1,0 +1,38 @@
+{% extends "home.html" %}
+{% block content %}
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row  border rounded-5 p-3 bg-white shadow box-area">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background:#103cbe;">
+                <div class="featured-image mb-3">
+                    <img src="/static/1.png" class="img_fluid" style="width: 250px;">
+                </div>
+                <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 700;">Music Play</p>
+                <small class="text-white text-wrap text-center" style="width: 17rem; font-family: 'Courier New', Courier, monospace; ">Faça login para acessar as opções</small>
+            </div>
+            <div class="col-md-6 right-box">
+                <div class="row align-items-center">
+                    <div class="header-text mb-4">
+                        <h2>Faça Login !</h2>
+                        <p>Seu cantinho da musica.</p>
+                    </div>
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+                        <div class="input-group mb-3">
+                            {{ form.email(type="text", class="form-control form-control-lg bg-light fs-6", placeholder="Email adress") }}
+                        </div>
+                        <div class="input-group mb-1">
+                            {{ form.password(type="password", class="form-control form-control-lg bg-light fs-6", placeholder="Password") }}
+                        </div>
+                        <div class="input-group mb-3">
+                            {{ form.submit(class="btn btn-lg btn-primary w-100 fs-6") }}
+                        </div>
+                    </form>
+                    <div class="row">
+                        <small>Ainda não tem conta? <a href="{{ url_for('user_setup.registrar_user') }}">Sign Up</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
