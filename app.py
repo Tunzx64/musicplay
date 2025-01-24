@@ -5,10 +5,12 @@ from flask_login import LoginManager
 from routes.home import home
 from routes.setup_users import setup_users
 from routes.setup_musics import setup_musics
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
+migrate = Migrate(app, db)
 
 app.register_blueprint(setup_users)                                 
 app.register_blueprint(home)
